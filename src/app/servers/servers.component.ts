@@ -7,8 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {    
     serverAdded: boolean = false;
-    serverName: string="";
-    serverNames:string[] = [];
+    serverName: string = "";
+    serverNames: string[] = [];
+    showDetails: boolean = false;
+    buttonClicks: string[] = [];
+    userInput: string = "";
 
     addServer() {
       this.serverAdded = true;
@@ -17,11 +20,20 @@ export class ServersComponent {
     }
 
     addButtonCSSStyles() {
-      let CssStyles = {        
-          'color':'red',
-          'font-weight': 'bold',
-          'font-size.px': 20
+      return {
+        'color': 'red',
+        'font-weight': 'bold',
+        'font-size.px': 20
       };
-      return CssStyles;
+    }
+
+    toggleDetails() {
+      this.showDetails = !this.showDetails;
+      this.logButtonClick();
+    }
+    
+    logButtonClick() {
+      const timestamp = new Date().toLocaleString();
+      this.buttonClicks.push(`Button clicked at ${timestamp}`);
     }
 }

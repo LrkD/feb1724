@@ -1,13 +1,12 @@
 <input type="text" [(ngModel)]="serverName"/>
-<input type="button"
-[ngStyle]="addButtonCSSStyles()"
-value="Add Server"
-(click)="addServer()"
-/>
+<input type="button" [ngStyle]="addButtonCSSStyles()" value="Add Server" (click)="addServer()" />
 <hr />
-<div *ngIf="serverAdded">
-<div *ngFor="let server of serverNames; let i = index">
-    {{i+1}} .Server Name: {{ server }} <app-server></app-server>
-</div>
 
+<textarea [(ngModel)]="userInput" placeholder="Type your content here"></textarea>
+<button (click)="toggleDetails()">Display Details</button>
+
+<p *ngIf="showDetails">{{ userInput }}</p>
+
+<div *ngFor="let click of buttonClicks; let i = index">
+  {{ i+1 }}. {{ click }}
 </div>
