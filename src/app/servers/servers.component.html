@@ -7,6 +7,6 @@
 
 <p *ngIf="showDetails">{{ userInput }}</p>
 
-<div *ngFor="let click of buttonClicks; let i = index">
-  {{ i+1 }}. {{ click }}
+<div *ngFor="let log of buttonClicks; let i = index" [ngStyle]="i >= 4 ? {'background-color': 'blue', 'color': 'white'} : {}" [ngClass]="i >= 4 ? 'log-styling' : ''">
+  {{ i+1 }}. {{ log }}
 </div>
