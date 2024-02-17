@@ -1,0 +1,13 @@
+<input type="text" [(ngModel)]="serverName"/>
+<input type="button"
+[ngStyle]="addButtonCSSStyles()"
+value="Add Server"
+(click)="addServer()"
+/>
+<hr />
+<div *ngIf="serverAdded">
+<div *ngFor="let server of serverNames; let i = index">
+    {{i+1}} .Server Name: {{ server }} <app-server></app-server>
+</div>
+
+</div>
